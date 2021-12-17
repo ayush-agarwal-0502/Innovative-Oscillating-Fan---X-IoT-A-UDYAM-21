@@ -18,6 +18,17 @@ This Github post is more concerned with the PS2 , since it involved making this 
 # About the project :
 
 The basic idea behind this project which I thought is that we can automate the process of setting the direction of oscillating fan towards ourselves , by using an Infrared sensor to detect us, stop in our direction , and keep oscillating when it can't detect us . This I have achieved using Arduino, L293D , and infrared sensor . My teammates furthermore added a Blynk sensor to make the fan controllable via phone too . We made the circuit for this fan on Proteus . 
+Hopefully the arduino code works , since I'm in 2nd year now and made this project in first year so this may or may not br the final version .
+
+Proteus circuit :
+![image](https://user-images.githubusercontent.com/86561124/146506193-5a494423-3c5e-4a34-bb73-360c9e044526.png)
+Arduino code :
+![image](https://user-images.githubusercontent.com/86561124/146506297-3919ec44-9b18-461f-8063-dd3b445b31e5.png)
+![image](https://user-images.githubusercontent.com/86561124/146506358-5f934241-338b-43c2-8787-3240774dcc29.png)
+Blynk app :
+
+![image](https://user-images.githubusercontent.com/86561124/146506508-540d59e8-6702-4ab1-a883-b521b934d431.png)
+
 
 
 ## Addons :
