@@ -19,5 +19,9 @@ This Github post is more concerned with the PS2 , since it involved making this 
 
 The basic idea behind this project which I thought is that we can automate the process of setting the direction of oscillating fan towards ourselves , by using an Infrared sensor to detect us, stop in our direction , and keep oscillating when it can't detect us . This I have achieved using Arduino, L293D , and infrared sensor . My teammates furthermore added a Blynk sensor to make the fan controllable via phone too . We made the circuit for this fan on Proteus . 
 
+
 ## Addons :
 I have also made a multi person version for this fan , just the idea part myself . This accomodation in the original model makes the fan suitable even when multiple people are standing in front of it . It is availaible at this link : 
+https://github.com/ayush-agarwal-0502/Innovative-Oscillating-Fan---X-IoT-A-UDYAM-21/blob/main/oscillating%20fan%20multi%20people%20accomodation%20-%20pitch%20perfect%20project.pdf
+
+Please see this link for the description of the addon project .
