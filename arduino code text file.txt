@@ -1,0 +1,85 @@
+/* Ayush Agarwal , Electronics engineering , IIT BHU Varanasi */
+#include <BlynkSimpleStream.h>
+char auth[] = "O3T8bYJWUUIEkX0fVhMbEm8-AVQh2U6C";
+WidgetLCD lcd2(V1);
+const int powe=7;
+const int mo = 8;
+const int ICpin2 = 11;
+const int ICpin7 = 10;
+const int prox=6;
+int potValue = 0;
+int stepValue=0;
+int motorValue = 0;
+int fwdbuttonState = 0;
+int bckbuttonState = 0;
+int proxi=0;
+int power=0;
+int mode=0;
+BlynkTimer timer;
+BLYNK_CONNECTED()
+{
+  Blynk.syncAll();
+}
+BLYNK_WRITE(V2)
+{
+  potValue=param.asInt();
+}
+BLYNK_WRITE(V3)
+{
+  stepValue=param.asInt();
+}
+void setup()
+{
+  Serial.begin(9600);
+ Blynk.begin(Serial, auth);
+ timer.setInterval(1500L, myTimerEvent);
+  lcd2.clear();
+  lcd2.print(0,0,"TECHNITES");
+  lcd2.print(0,1,"Fan Connected");
+pinMode(prox,INPUT);
+pinMode(ICpin2, OUTPUT);
+pinMode(ICpin7, OUTPUT);
+}
+
+void myTimerEvent()
+{
+    if(power==LOW)
+    {
+      lcd2.clear();
+      lcd2.print(0,0,"Fan off");
+    }
+    else
+    {
+     lcd2.clear();
+     lcd2.print(0,0,motorValue);
+     if(proxi==HIGH)
+     {
+      lcd2.print(3,0,",Hold Button");
+      lcd2.print(0,1,"To Change Dir");
+     }
+    }
+}
+void loop()
+{
+  Blynk.run();
+  timer.run();
+mode=digitalRead(mo);
+if(mode==LOW)
+motorValue = map(potValue, 0, 1023, 0, 255);
+else
+motorValue=stepValue*51;
+
+proxi=digitalRead(prox);
+power=digitalRead(powe);
+if(power==HIGH)
+{
+analogWrite(ICpin7, motorValue);
+                
+analogWrite(ICpin2, LOW);
+}
+else
+{
+digitalWrite(ICpin2, LOW);
+digitalWrite(ICpin7, LOW);
+}
+}
